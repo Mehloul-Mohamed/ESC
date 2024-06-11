@@ -25,9 +25,9 @@ options:
   -h, --help  show this help message and exit
 ```
 
-- `duck`: Transform Text into Esoteric Python Using Boolean Tricks  
+- `esoteric`: Transform Text into Esoteric Python Using Boolean Tricks  
 ```
-usage: main.py duck [-h] [-eval] Type Text
+usage: main.py esoteric [-h] [-eval] Type Text
 
 positional arguments:
   Type        Technique To Use

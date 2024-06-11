@@ -1,6 +1,6 @@
 import argparse
 import tools.italics as italics
-import tools.pyduck as pyduck
+import tools.esotericpy as esotericpy
 import tools.nobuiltins as nobuiltins
 import tools.blacklist_checker as blacklist_checker
 
@@ -13,7 +13,7 @@ def main():
     italic.add_argument("Text",help="Text To Change",type=str)
 
     # PyDuck Mode
-    duck=subparsers.add_parser('duck', help="Transform Text into Esoteric Python Using Boolean Tricks")
+    duck=subparsers.add_parser('esoteric', help="Transform Text into Esoteric Python Using Boolean Tricks")
     duck.add_argument("-eval",help="Wrap Output In eval()",action="store_true")
     duck.add_argument("Type",help="Technique To Use",type=int)
     duck.add_argument("Text",help="Text To Change",type=str)
@@ -35,13 +35,13 @@ def main():
     if args.mode=="italic":
         print("Payload: ", italics.italize(args.Text))
         
-    elif args.mode=="duck":
+    elif args.mode=="esoteric":
         if args.Type==1:
-            print("Payload: ", pyduck.mess(args.Text,args.eval))
+            print("Payload: ", esotericpy.mess(args.Text,args.eval))
         elif args.Type==2:
-            print("Payload: ", pyduck.mess_all(args.Text,args.eval))
+            print("Payload: ", esotericpy.mess_all(args.Text,args.eval))
         else:
-            print("PyDuck: Invalid Type Value")
+            print("EsotericPy: Invalid Type Value")
             
     elif args.mode=="builtin":
         print("Payload: ", nobuiltins.payload(args.Module,args.Function,args.params))
