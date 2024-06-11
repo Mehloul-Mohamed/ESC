@@ -9,7 +9,7 @@
 ## Usage
 
 ```console
-python3 main.py [-h] Mode ...
+python3 main.py [-h] [-o Output File] Mode ...
 ```
 
 `Mode` can be one of:  
