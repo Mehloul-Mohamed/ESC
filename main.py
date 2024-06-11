@@ -12,7 +12,7 @@ def main():
     italic=subparsers.add_parser('italic',help="Transform Text Into Mathematical Italic Letters (Useful to avoid blacklists)")
     italic.add_argument("Text",help="Text To Change",type=str)
 
-    # PyDuck Mode
+    # Esoteric Mode
     duck=subparsers.add_parser('esoteric', help="Transform Text into Esoteric Python Using Boolean Tricks")
     duck.add_argument("-eval",help="Wrap Output In eval()",action="store_true")
     duck.add_argument("Type",help="Technique To Use",type=int)
