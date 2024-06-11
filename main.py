@@ -37,9 +37,9 @@ def main():
         
     elif args.mode=="esoteric":
         if args.Type==1:
-            print("Payload: ", esotericpy.mess(args.Text,args.eval))
+            print("Payload: ", esotericpy.transform(args.Text,args.eval))
         elif args.Type==2:
-            print("Payload: ", esotericpy.mess_all(args.Text,args.eval))
+            print("Payload: ", esotericpy.transform2(args.Text,args.eval))
         else:
             print("EsotericPy: Invalid Type Value")
             

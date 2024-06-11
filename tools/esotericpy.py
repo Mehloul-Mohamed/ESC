@@ -1,4 +1,4 @@
-def mess(command,use_eval=False):
+def transform(command,use_eval=False):
     result=""
     for c in command:
         result+="chr("
@@ -8,7 +8,7 @@ def mess(command,use_eval=False):
         return "eval("+result[:-1]+")"
     return result[:-1]
 
-def mess_all(command,use_eval=False):
+def transform2(command,use_eval=False):
     result=""
     for c in command:
         result+="chr("
