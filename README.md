@@ -8,14 +8,14 @@
 ```git clone https://github.com/Mehloul-Mohamed/ESC```
 ## Usage
 
-```
+```console
 python3 main.py [-h] Mode ...
 ```
 
-Mode can be one of:  
-
+`Mode` can be one of:  
+  
 - `italic`: Transform Text Into Mathematical Italic Letters (Useful to avoid blacklists)  
-```
+```console
 usage: main.py italic [-h] Text
 
 positional arguments:
@@ -24,9 +24,9 @@ positional arguments:
 options:
   -h, --help  show this help message and exit
 ```
-
+  
 - `esoteric`: Transform Text into Esoteric Python Using Boolean Tricks  
-```
+```console
 usage: main.py esoteric [-h] [-eval] Type Text
 
 positional arguments:
@@ -37,9 +37,9 @@ options:
   -h, --help  show this help message and exit
   -eval       Wrap Output In eval()
 ```
-
+  
 - `builtin`: Generate Payload To Call Function When Builtins Are Disabled  
-```
+```console
 usage: main.py builtin [-h] Module Function Params
 
 positional arguments:
@@ -50,9 +50,9 @@ positional arguments:
 options:
   -h, --help  show this help message and exit
 ```
-
+  
 - `blacklist`: Generate List Of Builtins That Don't Trigger A Specified Blacklist  
-```
+```console
 usage: main.py blacklist [-h] blist
 
 positional arguments:
