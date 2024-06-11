@@ -9,42 +9,42 @@ def main():
     subparsers=parser.add_subparsers(dest="mode")
 
     # Italic Mode
-    italic=subparsers.add_parser('italic',help="Convert Command Into Mathematical Italic Letters")
-    italic.add_argument("COMMAND",help="Argument(s)",type=str)
+    italic=subparsers.add_parser('italic',help="Transform Text Into Mathematical Italic Letters (Useful to avoid blacklists)")
+    italic.add_argument("Text",help="Text To Change",type=str)
 
     # PyDuck Mode
-    duck=subparsers.add_parser('duck', help="Convert Command Into A Bunch Of Boolean Weirdness")
-    duck.add_argument("-eval",help="(Only Useful With -mess) Wrap output in eval()",action="store_true")
-    duck.add_argument("type",help="1 | 2",type=int)
-    duck.add_argument("COMMAND",help="Argument(s)",type=str)
+    duck=subparsers.add_parser('duck', help="Transform Text into Esoteric Python Using Boolean Tricks")
+    duck.add_argument("-eval",help="Wrap Output In eval()",action="store_true")
+    duck.add_argument("Type",help="Technique To Use",type=int)
+    duck.add_argument("Text",help="Text To Change",type=str)
     
     # Builtin Mode
-    disabled_builtin=subparsers.add_parser('builtin',help="Use Class Tricks To Use Modules When Builtins Are Disabled")
-    disabled_builtin.add_argument("module",help="Builtin Module To Use",type=str)
-    disabled_builtin.add_argument("function",help="Function To Call",type=str)
-    disabled_builtin.add_argument("ARGS",help="Argument(s)",type=str)
+    disabled_builtin=subparsers.add_parser('builtin',help="Generate Payload To Call Function When Builtins Are Disabled")
+    disabled_builtin.add_argument("Module",help="Module To Use",type=str)
+    disabled_builtin.add_argument("Function",help="Function To Call",type=str)
+    disabled_builtin.add_argument("Params",help="Arguments To The Function",type=str)
 
     # Blacklist Mode
-    blacklist=subparsers.add_parser('blacklist',help="Disaplay List Of Builtins That Do Not Trigger A Specified Blacklist")
-    blacklist.add_argument("blist",help="Blacklist",type=str)
+    blacklist=subparsers.add_parser('blacklist',help="Generate List Of Builtins That Don't Trigger A Specified Blacklist")
+    blacklist.add_argument("blist",help="Blacklist String",type=str)
 
 
     args=parser.parse_args()
 
 
     if args.mode=="italic":
-        print("Payload: ", italics.italize(args.COMMAND))
+        print("Payload: ", italics.italize(args.Text))
         
     elif args.mode=="duck":
-        if args.type==1:
-            print("Payload: ", pyduck.mess(args.COMMAND,args.eval))
-        elif args.type==2:
-            print("Payload: ", pyduck.mess_all(args.COMMAND,args.eval))
+        if args.Type==1:
+            print("Payload: ", pyduck.mess(args.Text,args.eval))
+        elif args.Type==2:
+            print("Payload: ", pyduck.mess_all(args.Text,args.eval))
         else:
             print("PyDuck: Invalid Type Value")
             
     elif args.mode=="builtin":
-        print("Payload: ", nobuiltins.payload(args.module,args.function,args.ARGS))
+        print("Payload: ", nobuiltins.payload(args.Module,args.Function,args.params))
         
     elif args.mode=="blacklist":
         print("List Of Available Builtins:")
