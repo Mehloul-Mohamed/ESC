@@ -19,7 +19,7 @@ def main():
     duck.add_argument("-eval",help="Wrap Output In eval()",action="store_true")
     duck.add_argument("Type",help="Technique To Use",choices=[1,2],type=int)
     duck.add_argument("Text",help="Text To Change",type=str)
-    
+
     # Builtin Mode
     disabled_builtin=subparsers.add_parser('builtin',help="Generate output To Call Function When Builtins Are Disabled")
     disabled_builtin.add_argument("Module",help="Module To Use",type=str)
@@ -36,16 +36,16 @@ def main():
 
     if args.mode=="italic":
         output+=italics.italize(args.Text)
-        
+
     elif args.mode=="esoteric":
         if args.Type==1:
             output+=esotericpy.transform(args.Text,args.eval)
         elif args.Type==2:
             output+=esotericpy.transform2(args.Text,args.eval)
-            
+
     elif args.mode=="builtin":
-        output+=nobuiltins.output(args.Module,args.Function,args.Params)
-        
+        output+=nobuiltins.payload(args.Module,args.Function,args.Params)
+
     elif args.mode=="blacklist":
         output='\n'.join(blacklist_checker.valid(args.blist))
 
